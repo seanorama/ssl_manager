@@ -32,7 +32,7 @@ Options:
   --service=SERVICE     Comma separated list of services for which SSL needs
                         to be enabled.'all' or comma seperated services.
                         Available configs are: HDFS,MRSHUFFLE,TEZ,HIVE,KAFKA,S
-                        PARK,SPARK2,RANGERADMIN,RANGERPLUGINS
+                        PARK,SPARK2,RANGERADMIN,RANGERPLUGINS,AMBARI_METRICS
   --ui=UI               Comma separated list of UI's for which SSL needs to be
                         enabled. 'all' or comma seperated uis. Available ui's
                         are: HDFSUI,YARN,MAPREDUCE2UI,HBASE,OOZIE,AMBARI_INFRA

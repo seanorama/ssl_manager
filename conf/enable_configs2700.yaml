@@ -298,3 +298,25 @@ NIFI_REGISTRY:
     nifi.registry.security.keystorePasswd: $keystorepassword
     nifi.registry.security.keyPasswd: $keystorepassword
     nifi.registry.security.truststorePasswd: $truststorepassword
+
+AMBARI_METRICS:
+  - config_type: ams-ssl-client
+    ssl.client.truststore.location: /etc/pki/java/cacerts
+    ssl.client.truststore.password: changeit
+    ssl.client.truststore.type: jks
+
+  - config_type: ams-ssl-server
+    ssl.server.keystore.keypassword: $keystorepassword
+    ssl.server.keystore.location: $keystore
+    ssl.server.keystore.password: $keystorepassword
+    ssl.server.keystore.type: jks
+    ssl.server.truststore.location: $truststore
+    ssl.server.truststore.password: $truststorepassword
+    ssl.server.truststore.type: jks
+
+  - config_type: ams-grafana-ini
+    ca_cert: /etc/pki/tls/certs/ca-bundle.crt
+    cert_file: /etc/security/certificates/host.crt
+    cert_key: /etc/security/certificates/host.key
+    protocol: https
+
