@@ -275,7 +275,7 @@ NIFI:
     nifi.ssl.truststorePassword: $truststorepassword
 
   - config_type: ranger-nifi-security
-    ranger.plugin.nifi.policy.rest.url: {{config['configurations']['ranger-admin-site']['ranger.externalurl']}}
+    ranger.plugin.nifi.policy.rest.url: "{{config['configurations']['ranger-admin-site']['ranger.externalurl']}}"
 
   - config_type: ranger-nifi-policymgr-ssl
     xasecure.policymgr.clientssl.keystore: $keystore
