@@ -36,7 +36,8 @@ Options:
   --ui=UI               Comma separated list of UI's for which SSL needs to be
                         enabled. 'all' or comma seperated uis. Available ui's
                         are: HDFSUI,YARN,MAPREDUCE2UI,HBASE,OOZIE,AMBARI_INFRA
-                        ,AMBARI_INFRA_SOLR,ATLAS,ZEPPELIN,STORM,AMBARI,NIFI,NIFI_REGISTRY.
+                        ,AMBARI_INFRA_SOLR,ATLAS,ZEPPELIN,STORM,AMBARI,NIFI,NI
+                        FI_REGISTRY,REGISTRY,SMARTSENSE.
   --user=USER           Optional user ID to use for ambari authentication.
                         Default is 'admin'
   --password=PASSWORD   Optional password to use for ambari authentication.
