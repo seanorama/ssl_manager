@@ -249,7 +249,7 @@ NIFI:
     nifi.node.port: ' '
 
   - config_type: nifi-properties
-    nifi.web.http.port:
+    nifi.web.http.port: ' '
     nifi.security.keyPasswd: $keystorepassword
     nifi.security.keystorePasswd: $keystorepassword
     nifi.security.truststorePasswd: $truststorepassword
