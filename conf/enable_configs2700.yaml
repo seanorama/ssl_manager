@@ -256,7 +256,7 @@ NIFI:
 
   - config_type: nifi-ambari-ssl-config
     nifi.toolkit.tls.token: ''
-    nifi.ssl.isenabled: true
+    nifi.node.ssl.isenabled: true
     nifi.security.keystore: $keystore
     nifi.security.keystoreType: jks
     nifi.security.keystorePasswd: $keystorepassword
@@ -285,7 +285,6 @@ NIFI:
 
 NIFI_REGISTRY:
   - config_type: nifi-registry-ambari-config
-    nifi.registry.port:
 
   - config_type: nifi-registry-ambari-ssl-config
     nifi.registry.ssl.isenabled: true
