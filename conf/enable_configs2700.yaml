@@ -246,7 +246,7 @@ STORM:
 
 NIFI:
   - config_type: nifi-ambari-config
-    nifi.node.port: 
+    nifi.node.port: ' '
 
   - config_type: nifi-properties
     nifi.web.http.port:
@@ -255,7 +255,7 @@ NIFI:
     nifi.security.truststorePasswd: $truststorepassword
 
   - config_type: nifi-ambari-ssl-config
-    nifi.toolkit.tls.token:
+    nifi.toolkit.tls.token: ''
     nifi.ssl.isenabled: true
     nifi.security.keystore: $keystore
     nifi.security.keystoreType: jks
@@ -311,6 +311,7 @@ AMBARI_METRICS:
     ssl.client.truststore.type: jks
 
   - config_type: ams-ssl-server
+    ssl.server.keystore.alias: host_ssl
     ssl.server.keystore.keypassword: $keystorepassword
     ssl.server.keystore.location: $keystore
     ssl.server.keystore.password: $keystorepassword
