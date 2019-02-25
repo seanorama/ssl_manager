@@ -285,7 +285,6 @@ NIFI:
 
 NIFI_REGISTRY:
   - config_type: nifi-registry-ambari-config
-    nifi.registry.port:
 
   - config_type: nifi-registry-ambari-ssl-config
     nifi.registry.ssl.isenabled: true
