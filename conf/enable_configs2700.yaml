@@ -79,8 +79,8 @@ HIVE:
     
   - config_type: hive-interactive-site
     hive.server2.webui.use.ssl: true
-    hive.server2.webui.keystore.path: $truststore
-    hive.server2.webui.keystore.password: $truststorepassword
+    hive.server2.webui.truststore.path: $truststore
+    hive.server2.webui.truststore.password: $truststorepassword
 
 ZEPPELIN:
   - config_type: zeppelin-site
