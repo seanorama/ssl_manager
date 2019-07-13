@@ -255,7 +255,7 @@ NIFI:
     nifi.security.truststorePasswd: $truststorepassword
 
   - config_type: nifi-ambari-ssl-config
-    nifi.toolkit.tls.token: ''
+    nifi.toolkit.tls.token: ' '
     nifi.node.ssl.isenabled: true
     nifi.security.keystore: $keystore
     nifi.security.keystoreType: jks
