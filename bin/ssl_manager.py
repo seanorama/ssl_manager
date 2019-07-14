@@ -61,7 +61,10 @@ export OOZIE_HTTPS_KEYSTORE_FILE=/etc/security/certificates/keystore.jks
 export OOZIE_HTTPS_KEYSTORE_PASS=<password>
 export OOZIE_CLIENT_OPTS="${OOZIE_CLIENT_OPTS} -Doozie.connection.retry.count=5 -Djavax.net.ssl.trustStore=/etc/security/certificates/truststore.jks -Djavax.net.ssl.trustStorePassword=<password>"
 
-    Login to Oozie server and run: su -l oozie -c "/usr/hdp/current/oozie-server/bin/oozie-setup.sh prepare-war -secure"
+    Login to Oozie server and run:
+      chown oozie:oozie /usr/hdp/current/oozie-client/oozie-server/conf
+      chown oozie:oozie /usr/hdp/current/oozie-client/oozie-server/conf/server.xml
+      su -l oozie -c "/usr/hdp/current/oozie-server/bin/oozie-setup.sh prepare-war -secure"
 
     Note: Make sure Ext JS library is Installed and UI is already enabled.
     """
