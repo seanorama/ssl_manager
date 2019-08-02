@@ -72,17 +72,31 @@ KAFKA:
     ssl.truststore.password: $truststorepassword
 
 HIVE:
-  - config_type: hiveserver2-site
+  - config_type: hive-site
+    hive.server2.thrift.sasl.qop: auth-conf
     hive.server2.use.SSL: true
-    hive.server2.keystore.path: $keystore
-    hive.server2.keystore.password: $keystorepassword
-    
-  - config_type: hive-interactive-site
     hive.server2.webui.use.ssl: true
+    hive.server2.keystore.path: $keystore
+    hive.server2.keystore.password: $keystorepassword    
     hive.server2.webui.keystore.path: $keystore
     hive.server2.webui.keystore.password: $keystorepassword
+
+  - config_type: hiveserver2-site
     hive.server2.keystore.path: $keystore
     hive.server2.keystore.password: $keystorepassword
+    hive.server2.webui.keystore.path: $keystore
+    hive.server2.webui.keystore.password: $keystorepassword
+
+  - config_type: hive-interactive-site
+    hive.server2.thrift.sasl.qop: auth-conf
+    hive.server2.use.SSL: true
+    hive.server2.webui.use.ssl: true
+    hive.server2.keystore.path: $keystore
+    hive.server2.keystore.password: $keystorepassword
+    hive.server2.webui.keystore.path: $keystore
+    hive.server2.webui.keystore.password: $keystorepassword
+    hive.server2.webui.keystore.path: $truststore
+    hive.server2.webui.keystore.password: $truststorepassword
 
 ZEPPELIN:
   - config_type: zeppelin-site
@@ -307,7 +321,7 @@ NIFI_REGISTRY:
 
 AMBARI_METRICS:
   - config_type: ams-ssl-client
-    ssl.client.truststore.location: /etc/pki/java/cacerts
+    ssl.client.truststore.location: $truststore
     ssl.client.truststore.password: $truststorepassword
     ssl.client.truststore.type: jks
 
