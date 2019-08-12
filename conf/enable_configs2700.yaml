@@ -126,6 +126,7 @@ RANGERKMS:
     ranger.service.https.attrib.keystore.pass: $keystorepassword
     ranger.service.https.attrib.keystore.keyalias: host_ssl
     ranger.service.https.attrib.ssl.enabled: true
+
   - config_type: kms-env
     kms_port: 9393
 
