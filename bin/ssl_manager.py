@@ -20,7 +20,7 @@ CA_CONF_DIR = "conf"
 
 #####
 ALL_SERVICES = ['HDFS', 'MRSHUFFLE', 'TEZ', 'HIVE', 'KAFKA', 'RANGER', 'SPARK', 'SPARK2', 'AMBARI_METRICS']
-RANGER = ['RANGERADMIN', 'RANGERPLUGINS']
+RANGER = ['RANGERADMIN', 'RANGERPLUGINS', 'RANGERKMS']
 
 ALL_UI = ['HDFSUI', 'YARN', 'MAPREDUCE2UI', 'HBASE', 'OOZIE', 'AMBARI_INFRA', 'AMBARI_INFRA_SOLR', 'ATLAS', 'ZEPPELIN', 'STORM', 'NIFI', 'NIFI_REGISTRY', 'REGISTRY', 'SMARTSENSE']
 AMBARI = ['AMBARIUI']
@@ -538,7 +538,7 @@ def main():
                       dest="disablessl", help="Disables ssl for HDP stack.")
     parser.add_option("--service", help="Comma separated list of services for which SSL "
                                         "needs to be enabled.'all' or comma seperated services. "
-                                        "Available configs are: HDFS,MRSHUFFLE,TEZ,HIVE,KAFKA,SPARK,SPARK2,RANGERADMIN,RANGERPLUGINS,AMBARI_METRICS")
+                                        "Available configs are: HDFS,MRSHUFFLE,TEZ,HIVE,KAFKA,SPARK,SPARK2,RANGERADMIN,RANGERPLUGINS,RANGERKMS,AMBARI_METRICS")
     parser.add_option("--ui", dest="ui", help="Comma separated list of UI's for which SSL needs "
                                               "to be enabled. 'all' or comma seperated uis. "
                                               "Available ui's are: HDFSUI,YARN,MAPREDUCE2UI,HBASE,OOZIE,AMBARI_INFRA,AMBARI_INFRA_SOLR,ATLAS,ZEPPELIN,STORM,AMBARI,NIFI,NIFI_REGISTRY,REGISTRY,SMARTSENSE.")
