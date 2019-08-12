@@ -119,6 +119,16 @@ AMBARI_INFRA_SOLR:
     infra_solr_truststore_password: $truststorepassword
     infra_solr_extra_java_opts: -Dsolr.ssl.checkPeerName=false
 
+RANGERKMS:
+  - config_type: ranger-kms-site
+    ranger.service.https.attrib.client.auth: want
+    ranger.service.https.attrib.keystore.file: $keystore
+    ranger.service.https.attrib.keystore.pass: $keystorepassword
+    ranger.service.https.attrib.keystore.keyalias: host_ssl
+    ranger.service.https.attrib.ssl.enabled: true
+  - config_type: kms-env
+    kms_port: 9393
+
 RANGERADMIN:
   - config_type: ranger-admin-site
     ranger.service.http.enabled: false
