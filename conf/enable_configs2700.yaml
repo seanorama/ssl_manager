@@ -367,6 +367,7 @@ AMBARI_METRICS:
 
 SMARTSENSE:
   - config_type: activity-zeppelin-site
+    zeppelin.server.ssl.port: 9060
     zeppelin.ssl.key.manager.password: $keystorepassword
     zeppelin.ssl.keystore.password: $keystorepassword
     zeppelin.ssl.keystore.path: $keystore
