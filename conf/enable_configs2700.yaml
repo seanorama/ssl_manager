@@ -42,7 +42,6 @@ MAPREDUCE2UI:
   - config_type: mapred-site
     mapreduce.jobhistory.http.policy: HTTPS_ONLY
     mapreduce.jobhistory.webapp.https.address: 0.0.0.0:19890
-    mapreduce.jobhistory.webapp.address: 0.0.0.0:19890
 
   - config_type: hdfs-site
     dfs.https.enable: true
