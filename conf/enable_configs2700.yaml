@@ -228,6 +228,10 @@ HBASE:
   - config_type: hbase-site
     hbase.ssl.enabled: true
     hadoop.ssl.enabled: true
+    hbase.rest.ssl.enabled: true
+    hbase.rest.ssl.keystore.store: $keystorepassword
+    hbase.rest.ssl.keystore.password: $keystorepassword
+    hbase.rest.ssl.keystore.keypassword: $keystorepassword
     ssl.server.keystore.keypassword: $keystorepassword
     ssl.server.keystore.password: $keystorepassword
     ssl.server.keystore.location: $keystore
