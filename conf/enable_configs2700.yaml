@@ -82,12 +82,16 @@ HIVE:
     hive.server2.keystore.password: $keystorepassword    
     hive.server2.webui.keystore.path: $keystore
     hive.server2.webui.keystore.password: $keystorepassword
+    hive.server2.truststore.path: $truststore
+    hive.server2.truststore.password: $truststorepassword
 
   - config_type: hiveserver2-site
     hive.server2.keystore.path: $keystore
     hive.server2.keystore.password: $keystorepassword
     hive.server2.webui.keystore.path: $keystore
     hive.server2.webui.keystore.password: $keystorepassword
+    hive.server2.truststore.path: $truststore
+    hive.server2.truststore.password: $truststorepassword
 
   - config_type: hive-interactive-site
     hive.server2.thrift.sasl.qop: auth-conf
@@ -97,8 +101,8 @@ HIVE:
     hive.server2.keystore.password: $keystorepassword
     hive.server2.webui.keystore.path: $keystore
     hive.server2.webui.keystore.password: $keystorepassword
-    hive.server2.webui.keystore.path: $truststore
-    hive.server2.webui.keystore.password: $truststorepassword
+    hive.server2.truststore.path: $truststore
+    hive.server2.truststore.password: $truststorepassword
 
 ZEPPELIN:
   - config_type: zeppelin-site
