@@ -27,6 +27,7 @@ HDFS:
   - config_type: hdfs-site
     dfs.encrypt.data.transfer: true
     dfs.encrypt.data.transfer.algorithm: 3des
+    dfs.client.https.need-auth: false
 
 HDFSUI:
   - config_type: hdfs-site
@@ -253,11 +254,16 @@ SPARK2:
     spark.ssl.keyPassword: $keystorepassword
     spark.ssl.keyStore: $keystore
     spark.ssl.keyStorePassword: $keystorepassword
-    spark.ssl.protocol: TLS
+    spark.ssl.protocol: TLSv1.2
     spark.ssl.trustStore: $truststore
     spark.ssl.trustStorePassword: $truststorepassword
     spark.ui.https.enabled: true
     spark.ssl.historyServer.port: 18481
+    spark.ssl.historyServer.enabled: true
+    spark.ssl.historyServer.keystore: /etc/security/certificates/keystore.jks
+    spark.ssl.historyServer.keyStorePassword: $keystorepassword
+    spark.ssl.historyServer.truststore: /etc/security/certificates/truststore.jks
+    spark.ssl.historyServer.trustStorePassword: $truststorepassword
 
   - config_type: spark2-hive-site-override
     hive.server2.transport.mode: http
