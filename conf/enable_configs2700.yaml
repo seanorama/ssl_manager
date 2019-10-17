@@ -65,7 +65,7 @@ TEZ:
 
 KAFKA:
   - config_type: kafka-broker
-    listerners: SASL_PLAINTEXT://localhost:6667,SASL_SSL://localhost:6668
+    listeners: SASL_PLAINTEXT://localhost:6667,SASL_SSL://localhost:6668
     security.inter.broker.protocol: SASL_SSL
     ssl.keystore.location: $keystore
     ssl.keystore.password: $keystorepassword
