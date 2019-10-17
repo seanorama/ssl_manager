@@ -30,19 +30,18 @@ HDFS:
 
 HDFSUI:
   - config_type: hdfs-site
-    dfs.http.policy: HTTPS_ONLY
+    dfs.http.policy: HTTP_AND_HTTPS
     dfs.namenode.https-address: 0.0.0.0:50470
     dfs.namenode.secondary.https-address: 0.0.0.0:50091
 
 MRSHUFFLE:
   - config_type: mapred-site
-    mapreduce.shuffle.ssl.enabled: true
+    mapreduce.shuffle.ssl.enabled: false
 
 MAPREDUCE2UI:
   - config_type: mapred-site
     mapreduce.jobhistory.http.policy: HTTPS_ONLY
     mapreduce.jobhistory.webapp.https.address: 0.0.0.0:19890
-    mapreduce.jobhistory.webapp.address: 0.0.0.0:19890
 
   - config_type: hdfs-site
     dfs.https.enable: true
@@ -59,7 +58,7 @@ YARN:
 
 TEZ:
   - config_type: tez-site
-    tez.runtime.shuffle.ssl.enable: true
+    tez.runtime.shuffle.ssl.enable: false
     tez.runtime.shuffle.keep-alive.enabled: true
 
 
@@ -73,9 +72,29 @@ KAFKA:
 
 HIVE:
   - config_type: hiveserver2-site
+    hive.server2.keystore.password: $keystorepassword
+    hive.server2.keystore.password: $keystorepassword    
+    hive.server2.keystore.path: $keystore
+    hive.server2.thrift.sasl.qop: auth-conf
+    hive.server2.truststore.password: $truststorepassword
+    hive.server2.truststore.path: $truststore
     hive.server2.use.SSL: true
+    hive.server2.webui.keystore.password: $keystorepassword
+    hive.server2.webui.keystore.path: $keystore
+    hive.server2.webui.use.ssl: true
     hive.server2.keystore.path: $keystore
     hive.server2.keystore.password: $keystorepassword
+
+  - config_type: hive-interactive-site
+    hive.server2.thrift.sasl.qop: auth-conf
+    hive.server2.use.SSL: true
+    hive.server2.webui.use.ssl: true
+    hive.server2.keystore.path: $keystore
+    hive.server2.keystore.password: $keystorepassword
+    hive.server2.webui.keystore.path: $keystore
+    hive.server2.webui.keystore.password: $keystorepassword
+    hive.server2.truststore.path: $truststore
+    hive.server2.truststore.password: $truststorepassword
 
 ZEPPELIN:
   - config_type: zeppelin-config
@@ -96,21 +115,31 @@ AMBARI_INFRA:
     infra_solr_keystore_password: $keystorepassword
     infra_solr_truststore_location: $truststore
     infra_solr_truststore_password: $truststorepassword
+    infra_solr_extra_java_opts: -Dsolr.ssl.checkPeerName=false
+
+RANGERKMS:
+  - config_type: ranger-kms-site
+    ranger.service.https.attrib.client.auth: want
+    ranger.service.https.attrib.keystore.file: $keystore
+    ranger.service.https.attrib.keystore.pass: $keystorepassword
+    ranger.service.https.attrib.keystore.keyalias: host_ssl
+    ranger.service.https.attrib.ssl.enabled: true
+
+  - config_type: kms-env
+    kms_port: 9393
 
 RANGERADMIN:
   - config_type: ranger-admin-site
     ranger.service.http.enabled: false
     ranger.https.attrib.keystore.file: $keystore
     ranger.service.https.attrib.keystore.pass: $keystorepassword
-    ranger.service.https.attrib.keystore.keyalias: nifi-key
+    ranger.service.https.attrib.keystore.keyalias: host_ssl
     ranger.service.https.attrib.clientAuth: want
     ranger.service.https.attrib.ssl.enabled: true
     ranger.service.https.port: 6182
-    ranger.truststore.alias: nifi-cert
+    ranger.truststore.alias: host_ssl
     ranger.truststore.file: $truststore
     ranger.truststore.password: $truststorepassword
-
-  - config_type: ranger-site
     ranger.service.https.attrib.keystore.file: $keystore
     ranger.service.https.attrib.client.auth: want
 
@@ -174,11 +203,27 @@ RANGERPLUGINS:
     xasecure.policymgr.clientssl.keystore.password: $keystorepassword
     xasecure.policymgr.clientssl.truststore: $truststore
     xasecure.policymgr.clientssl.truststore.password: $truststorepassword
+    
+ - config_type: atlas-tagsync-ssl
+    xasecure.policymgr.clientssl.keystore: $keystore
+    xasecure.policymgr.clientssl.keystore.password: $keystorepassword
+    xasecure.policymgr.clientssl.truststore: $truststore
+    xasecure.policymgr.clientssl.truststore.password: $truststorepassword
+
+ - config_type: ranger-kms-policymgr-ssl
+    xasecure.policymgr.clientssl.keystore: $keystore
+    xasecure.policymgr.clientssl.keystore.password: $keystorepassword
+    xasecure.policymgr.clientssl.truststore: $truststore
+    xasecure.policymgr.clientssl.truststore.password: $truststorepassword
 
 HBASE:
   - config_type: hbase-site
     hbase.ssl.enabled: true
     hadoop.ssl.enabled: true
+    hbase.rest.ssl.enabled: true
+    hbase.rest.ssl.keystore.store: $keystorepassword
+    hbase.rest.ssl.keystore.password: $keystorepassword
+    hbase.rest.ssl.keystore.keypassword: $keystorepassword
     ssl.server.keystore.keypassword: $keystorepassword
     ssl.server.keystore.password: $keystorepassword
     ssl.server.keystore.location: $keystore
@@ -188,8 +233,8 @@ ATLAS:
     atlas.enableTLS: true
     keystore.file: $keystore
     truststore.file: $truststore
+    cert.stores.credential.provider.path: jceks://file//etc/atlas/conf/credentials.jceks
     client.auth.enabled: true
-    cert.stores.credential.provider.path: jceks://file//etc/security/certificates/ssl.jceks
 
 SPARK:
   - config_type: yarn-site
@@ -230,11 +275,16 @@ SPARK2:
     spark.ssl.keyPassword: $keystorepassword
     spark.ssl.keyStore: $keystore
     spark.ssl.keyStorePassword: $keystorepassword
-    spark.ssl.protocol: TLS
+    spark.ssl.protocol: TLSv1.2
     spark.ssl.trustStore: $truststore
     spark.ssl.trustStorePassword: $truststorepassword
     spark.ui.https.enabled: true
     spark.ssl.historyServer.port: 18481
+    spark.ssl.historyServer.enabled: true
+    spark.ssl.historyServer.keystore: /etc/security/certificates/keystore.jks
+    spark.ssl.historyServer.keyStorePassword: $keystorepassword
+    spark.ssl.historyServer.truststore: /etc/security/certificates/truststore.jks
+    spark.ssl.historyServer.trustStorePassword: $truststorepassword
 
   - config_type: spark2-hive-site-override
     hive.server2.transport.mode: http
