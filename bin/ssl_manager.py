@@ -51,6 +51,14 @@ AMBARI_METRICS = \
     sudo ambari-server restart
     """
 
+RANGER = \
+    """
+    
+    In Ambari, go to the following setting and click "Set Recommended":
+      - Ranger -> Configs -> Advanced -> "External URL"
+
+    """
+
 CA = \
     """
     Generated a CA and server certificates for all the hosts:
@@ -449,6 +457,9 @@ def parse_service(services, accessor, cluster, conf_file):
         elif s_name == "AMBARI_METRICS":
             logger.info("Please follow below instructions to enable SSL for Ambari Metrics.")
             logger.info(AMBARI_METRICS)
+        elif s_name == "RANGER":
+            logger.info("Please follow below instructions to enable SSL for Ranger.")
+            logger.info(RANGER)
         else:
             update_configs_ambari(s_name, accessor, cluster, conf_file)
     return
