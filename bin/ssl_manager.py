@@ -42,6 +42,15 @@ truststorepassword = ""
 accessor = ""
 IS_HADOOP = ['HDFS', 'HDFSUI', 'YARN', 'MRSHUFFLE', 'MAPREDUCE2UI', 'TEZ', 'HBASE']
 
+AMBARI_METRICS = \
+    """
+    Update Ambari Server properties to talk HTTPS to AMS 
+
+    echo "server.timeline.metrics.https.enabled=true" | sudo tee -a /etc/ambari-server/conf/ambari.properties
+
+    sudo ambari-server restart
+    """
+
 CA = \
     """
     Generated a CA and server certificates for all the hosts:
@@ -437,6 +446,9 @@ def parse_service(services, accessor, cluster, conf_file):
             for i in services_to_be_considered:
                 logger.info("Enabling SSL for {0}".format(i))
                 update_configs_ambari(i.upper(), accessor, cluster, conf_file)
+        elif u_name == "AMBARI_METRICS":
+            logger.info("Please follow below instructions to enable SSL for Ambari Metrics.")
+            logger.info(AMBARI_METRICS)
         else:
             update_configs_ambari(s_name, accessor, cluster, conf_file)
     return

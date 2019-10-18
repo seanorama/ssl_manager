@@ -318,6 +318,34 @@ STORM:
     drpc.https.truststore.password: $truststorepassword
     drpc.https.truststore.type: jks
 
+AMBARI_METRICS:
+  - config_type: ams-site
+    timeline.metrics.service.http.policy: HTTPS_ONLY
+ 
+  - config_type: ams-ssl-client
+    ssl.client.keystore.location: $keystore
+    ssl.client.keystore.password: $keystorepassword
+    ssl.client.keystore.keypassword: $keystorepassword
+    ssl.client.keystore.type: jks
+    ssl.client.truststore.location: $truststore
+    ssl.client.truststore.password: $truststorepassword
+    ssl.client.truststore.type: jks
+
+  - config_type: ams-ssl-server
+    ssl.server.keystore.location: $keystore
+    ssl.server.keystore.password: $keystorepassword
+    ssl.server.keystore.keypassword: $keystorepassword
+    ssl.server.keystore.type: jks
+    ssl.server.truststore.location: $truststore
+    ssl.server.truststore.password: $truststorepassword
+    ssl.server.truststore.type: jks
+ 
+  - config_type: ams-grafana-ini
+    ca_cert: /etc/pki/tls/certs/ca-bundle.crt
+    cert_file: /etc/security/certificates/host.crt
+    cert_key: /etc/security/certificates/host.key
+    protocol: https
+
 FALCON:
   - config_type: falcon-startup.properties
     "*.falcon.enableTLS": true
