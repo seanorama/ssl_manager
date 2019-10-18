@@ -211,14 +211,14 @@ RANGERPLUGINS:
     xasecure.policymgr.clientssl.keystore.password: $keystorepassword
     xasecure.policymgr.clientssl.truststore: $truststore
     xasecure.policymgr.clientssl.truststore.password: $truststorepassword
-    
- - config_type: atlas-tagsync-ssl
+
+  - config_type: atlas-tagsync-ssl
     xasecure.policymgr.clientssl.keystore: $keystore
     xasecure.policymgr.clientssl.keystore.password: $keystorepassword
     xasecure.policymgr.clientssl.truststore: $truststore
     xasecure.policymgr.clientssl.truststore.password: $truststorepassword
 
- - config_type: ranger-kms-policymgr-ssl
+  - config_type: ranger-kms-policymgr-ssl
     xasecure.policymgr.clientssl.keystore: $keystore
     xasecure.policymgr.clientssl.keystore.password: $keystorepassword
     xasecure.policymgr.clientssl.truststore: $truststore
