@@ -233,7 +233,7 @@ ATLAS:
     atlas.enableTLS: true
     keystore.file: $keystore
     truststore.file: $truststore
-    cert.stores.credential.provider.path: jceks://file//etc/atlas/conf/credentials.jceks
+    cert.stores.credential.provider.path: jceks://file/etc/security/certificates/ssl.jceks
     client.auth.enabled: true
 
 SPARK:
