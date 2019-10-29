@@ -229,7 +229,7 @@ HBASE:
     hbase.ssl.enabled: true
     hadoop.ssl.enabled: true
     hbase.rest.ssl.enabled: true
-    hbase.rest.ssl.keystore.store: $keystorepassword
+    hbase.rest.ssl.keystore.store: $keystore
     hbase.rest.ssl.keystore.password: $keystorepassword
     hbase.rest.ssl.keystore.keypassword: $keystorepassword
     ssl.server.keystore.keypassword: $keystorepassword
