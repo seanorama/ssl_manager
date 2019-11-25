@@ -127,7 +127,9 @@ AMBARI_INFRA_SOLR:
 
 RANGERKMS:
   - config_type: ranger-kms-site
+    ranger.https.attrib.keystore.file: $keystore
     ranger.service.https.attrib.client.auth: want
+    ranger.service.https.attrib.clientAuth: want
     ranger.service.https.attrib.keystore.file: $keystore
     ranger.service.https.attrib.keystore.pass: $keystorepassword
     ranger.service.https.attrib.keystore.keyalias: host_ssl
