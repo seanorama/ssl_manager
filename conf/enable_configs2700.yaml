@@ -228,6 +228,7 @@ RANGERPLUGINS:
 
 HBASE:
   - config_type: hbase-site
+    hbase.master.info.port: 16443
     hbase.ssl.enabled: true
     hadoop.ssl.enabled: true
     hbase.rest.ssl.enabled: true
